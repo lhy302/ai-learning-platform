@@ -1,0 +1,23 @@
+{
+  "id": "task_12_fsm_mutation_defense",
+  "tier": "level_4_master",
+  "difficulty": "expert",
+  "level_num": 4,
+  "title": "Level 4-3: 复杂订单业务状态机重构与深层变异测试防御",
+  "category": "architecture_design",
+  "domain": "state_machine",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/order-workflow/pull/1205",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "architecture_design",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "使用散乱的 if-else 处理状态转移，漏掉了对当前状态的前置校验，使得在 PENDING 状态下可以直接触发 'REFUND' 事件跃迁到 REFUNDED，破坏资金安全。",
+  "review_checkpoints": [
+    "采用显式状态转移表 (Transition Map)",
+    "高强度变异测试防御非法跃迁"
+  ]
+}

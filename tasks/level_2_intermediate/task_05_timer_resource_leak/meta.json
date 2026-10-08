@@ -1,0 +1,24 @@
+{
+  "id": "task_05_timer_resource_leak",
+  "tier": "level_2_intermediate",
+  "difficulty": "medium",
+  "level_num": 2,
+  "title": "Level 2-2: 长轮询与心跳定时器未清理引起的句柄常驻与内存泄漏",
+  "category": "resource_leak",
+  "domain": "heartbeat",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/socket-client/pull/889",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "concurrency",
+    "performance",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "在 start 时直接重新赋值 this.timer = setInterval(...)，若连续调用 start() 会导致上一个定时器变成孤儿句柄无法被 stop() 清除，导致内存与 CPU 泄漏。",
+  "review_checkpoints": [
+    "在重新分配定时器前检查并清理旧句柄",
+    "确保 stop 幂等且置空句柄"
+  ]
+}

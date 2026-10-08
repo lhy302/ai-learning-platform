@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：在第一个 IO 请求尚未返回前，第二个相同键的请求如何感知到在途的 Promise？",
+  "L1": "方向提示：维护一个处于 in-flight 状态的 Promise 映射表。",
+  "L2": "模块提示：增加 this.inflight = new Map()。",
+  "L3": "函数提示：在执行 fetcher 前先 set 进 inflight，在 finally 中从 inflight 删除。",
+  "L4": "伪代码提示：if (inflight.has(k)) return inflight.get(k); inflight.set(k, promise); promise.finally(...)",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

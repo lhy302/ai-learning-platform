@@ -1,0 +1,23 @@
+{
+  "id": "task_02_array_pagination_boundary",
+  "tier": "level_1_novice",
+  "difficulty": "easy",
+  "level_num": 1,
+  "title": "Level 1-2: 列表分页与滑动窗口中的 Off-by-one 越界与空数组边界",
+  "category": "boundary_condition",
+  "domain": "pagination",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/page-helper/pull/314",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "boundary",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "在计算 hasNext 时使用了 page * pageSize <= items.length，当总条数恰好等于当前页末尾时误判 hasNext 为 true，导致最后一页仍显示有下一页。",
+  "review_checkpoints": [
+    "检查分页边界比较符是否多算或少算一条（<= 误用）",
+    "检查空数据源时的边界状态"
+  ]
+}

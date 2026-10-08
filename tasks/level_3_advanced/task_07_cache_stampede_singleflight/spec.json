@@ -1,0 +1,23 @@
+{
+  "description": "实现具备并发合并能力的 AsyncCache。当多个并发请求同时查询同一个未缓存的键时，底层的异步 fetcher 必须只执行 1 次，其余并发请求应共享该在途 Promise（Singleflight 模式）。",
+  "inputs": [
+    {
+      "name": "key",
+      "type": "string"
+    },
+    {
+      "name": "fetcher",
+      "type": "() => Promise<any>"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "val",
+      "type": "Promise<any>"
+    }
+  ],
+  "boundary_conditions": [
+    "10 个并发请求同一个未命中 key 时，fetcher 必须只被调用 1 次",
+    "当 fetcher 发生拒绝时，必须清理在途 Promise 允许后续请求重试，且错误透传给所有等待方"
+  ]
+}

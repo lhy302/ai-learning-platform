@@ -1,0 +1,24 @@
+{
+  "id": "task_01_falsy_null_coercion",
+  "tier": "level_1_novice",
+  "difficulty": "easy",
+  "level_num": 1,
+  "title": "Level 1-1: YAML/环境变量解析中的隐式假值类型转换陷阱",
+  "category": "boundary_condition",
+  "domain": "config_parser",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/yaml-config/pull/1042",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "boundary",
+    "null_safety",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "使用 val || def 进行假值合并，导致环境变量为合法空字符串 \"\" 时被判定为 falsy，错误回退到默认值。",
+  "review_checkpoints": [
+    "检查是否混淆了 falsy 与 undefined/null 概念",
+    "检查是否使用 Object.prototype.hasOwnProperty 或 in 操作符校验键是否存在"
+  ]
+}

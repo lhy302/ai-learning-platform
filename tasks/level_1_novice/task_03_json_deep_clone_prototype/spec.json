@@ -1,0 +1,21 @@
+{
+  "description": "实现 deepClone(obj) 函数，能够递归深度拷贝普通对象与数组，并且对 __proto__ 或 constructor 等敏感原型键具有免疫能力。",
+  "inputs": [
+    {
+      "name": "obj",
+      "type": "any",
+      "description": "待克隆对象"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cloned",
+      "type": "any",
+      "description": "独立副本"
+    }
+  ],
+  "boundary_conditions": [
+    "深拷贝必须拷贝自身属性，不能把继承自原型链的属性枚举拷贝到自身",
+    "严禁污染 Object.prototype（抵御恶意 __proto__ 输入）"
+  ]
+}

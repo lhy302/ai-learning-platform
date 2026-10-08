@@ -1,0 +1,24 @@
+{
+  "id": "task_10_snowflake_clock_rollback",
+  "tier": "level_4_master",
+  "difficulty": "expert",
+  "level_num": 4,
+  "title": "Level 4-1: 分布式雪花算法时钟回拨处理与并发 ID 碰撞防护",
+  "category": "architecture_design",
+  "domain": "distributed_id",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/snowflake-id/pull/991",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "capabilities": [
+    "architecture_design",
+    "concurrency",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "代码直接假设当前时间永远单调递增，发生 NTP 回拨时继续使用回退后的当前时间戳，导致同一机器生成与历史完全相同的 ID 碰撞。",
+  "review_checkpoints": [
+    "分布式环境物理时钟不确定性",
+    "时钟回拨防御策略"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "description": "实现 IdempotentEventConsumer 类。processEvent(event) 处理形如 { id, eventId, amount } 的入账事件。保证同一个 eventId 无论以何种并发与网络重试顺序到达，只能被入账 1 次。",
+  "inputs": [
+    {
+      "name": "event",
+      "type": "{ eventId: string, amount: number }"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "processed",
+      "type": "boolean"
+    }
+  ],
+  "boundary_conditions": [
+    "同一 eventId 重复投递必须直接返回 false，且账户余额不能发生双重累加",
+    "即使在并发 Promise.all 同时处理相同 eventId 时也必须保证原子去重"
+  ]
+}

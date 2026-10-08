@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：如果将状态转移拆解为状态图，从 PENDING 能否有一条直接到达 REFUNDED 的有向边？",
+  "L1": "方向提示：摒弃散乱的 if-else，使用标准状态机状态转移表 (State Transition Table)。",
+  "L2": "模块提示：定义 transitions[currentState][action] 映射表。",
+  "L3": "函数提示：在执行动作前，先断言当前状态是否拥有该动作的出边。",
+  "L4": "伪代码提示：const next = transitions[this.state]?.[action]; if (!next) throw Error(); this.state = next;",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

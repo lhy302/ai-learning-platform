@@ -1,0 +1,210 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-08T08:26:26.239Z",
+  "tiers": [
+    {
+      "id": "level_1_novice",
+      "name": "Level 1: 基础入门 (Novice)",
+      "description": "夯实基本功：掌握语言隐式类型转换、空值陷阱、边界 Off-by-one 与原型链保护",
+      "tasks_count": 3
+    },
+    {
+      "id": "level_2_intermediate",
+      "name": "Level 2: 进阶实战 (Intermediate)",
+      "description": "驾驭异步与资源：异步未捕获异常中断、定时器句柄泄漏、类实例有状态并发污染",
+      "tasks_count": 3
+    },
+    {
+      "id": "level_3_advanced",
+      "name": "Level 3: 高阶深水 (Advanced)",
+      "description": "高并发与系统安全：高并发缓存击穿 Singleflight 合并、路径穿越黑名单绕过、死锁防护",
+      "tasks_count": 3
+    },
+    {
+      "id": "level_4_master",
+      "name": "Level 4: 架构大师 (Master)",
+      "description": "分布式与高可用重构：雪花时钟回拨处理、幂等去重窗口防击穿、状态机高抗突变防御",
+      "tasks_count": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_01_falsy_null_coercion",
+      "tier": "level_1_novice",
+      "difficulty": "easy",
+      "level_num": 1,
+      "title": "Level 1-1: YAML/环境变量解析中的隐式假值类型转换陷阱",
+      "category": "boundary_condition",
+      "domain": "config_parser",
+      "language": "javascript",
+      "capabilities": [
+        "boundary",
+        "null_safety",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_02_array_pagination_boundary",
+      "tier": "level_1_novice",
+      "difficulty": "easy",
+      "level_num": 1,
+      "title": "Level 1-2: 列表分页与滑动窗口中的 Off-by-one 越界与空数组边界",
+      "category": "boundary_condition",
+      "domain": "pagination",
+      "language": "javascript",
+      "capabilities": [
+        "boundary",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_03_json_deep_clone_prototype",
+      "tier": "level_1_novice",
+      "difficulty": "easy",
+      "level_num": 1,
+      "title": "Level 1-3: 对象深拷贝中的原型链枚举与原型污染防护",
+      "category": "security",
+      "domain": "object_utils",
+      "language": "javascript",
+      "capabilities": [
+        "security",
+        "null_safety",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_04_async_unhandled_rejection",
+      "tier": "level_2_intermediate",
+      "difficulty": "medium",
+      "level_num": 2,
+      "title": "Level 2-1: 异步任务队列中的未捕获异常导致事件循环与管道中断",
+      "category": "error_handling",
+      "domain": "async_queue",
+      "language": "javascript",
+      "capabilities": [
+        "error_handling",
+        "concurrency",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_05_timer_resource_leak",
+      "tier": "level_2_intermediate",
+      "difficulty": "medium",
+      "level_num": 2,
+      "title": "Level 2-2: 长轮询与心跳定时器未清理引起的句柄常驻与内存泄漏",
+      "category": "resource_leak",
+      "domain": "heartbeat",
+      "language": "javascript",
+      "capabilities": [
+        "concurrency",
+        "performance",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_06_state_pollution_class_instance",
+      "tier": "level_2_intermediate",
+      "difficulty": "medium",
+      "level_num": 2,
+      "title": "Level 2-3: AI 在重试批处理器中将临时批结果误置于类实例属性导致状态串话",
+      "category": "ai_review",
+      "domain": "batch_executor",
+      "language": "javascript",
+      "capabilities": [
+        "ai_review",
+        "concurrency",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_07_cache_stampede_singleflight",
+      "tier": "level_3_advanced",
+      "difficulty": "hard",
+      "level_num": 3,
+      "title": "Level 3-1: 高并发异步 LRU 缓存击穿与未命中竞态 (Singleflight 模式)",
+      "category": "concurrency",
+      "domain": "cache_system",
+      "language": "javascript",
+      "capabilities": [
+        "concurrency",
+        "performance",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_08_path_traversal_sanitization",
+      "tier": "level_3_advanced",
+      "difficulty": "hard",
+      "level_num": 3,
+      "title": "Level 3-2: 静态文件服务器黑名单过滤双写绕过与跨目录逃逸漏洞",
+      "category": "security",
+      "domain": "file_security",
+      "language": "javascript",
+      "capabilities": [
+        "security",
+        "boundary",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_09_deadlock_lock_ordering",
+      "tier": "level_3_advanced",
+      "difficulty": "hard",
+      "level_num": 3,
+      "title": "Level 3-3: 多资源并发互斥锁顺序不一致引发的循环等待死锁",
+      "category": "concurrency",
+      "domain": "concurrency_lock",
+      "language": "javascript",
+      "capabilities": [
+        "concurrency",
+        "architecture_design",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_10_snowflake_clock_rollback",
+      "tier": "level_4_master",
+      "difficulty": "expert",
+      "level_num": 4,
+      "title": "Level 4-1: 分布式雪花算法时钟回拨处理与并发 ID 碰撞防护",
+      "category": "architecture_design",
+      "domain": "distributed_id",
+      "language": "javascript",
+      "capabilities": [
+        "architecture_design",
+        "concurrency",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_11_idempotent_event_dedup",
+      "tier": "level_4_master",
+      "difficulty": "expert",
+      "level_num": 4,
+      "title": "Level 4-2: 乱序消息消费中的幂等去重窗口失效与重复结算事故",
+      "category": "architecture_design",
+      "domain": "event_processing",
+      "language": "javascript",
+      "capabilities": [
+        "architecture_design",
+        "concurrency",
+        "testing_mastery"
+      ]
+    },
+    {
+      "id": "task_12_fsm_mutation_defense",
+      "tier": "level_4_master",
+      "difficulty": "expert",
+      "level_num": 4,
+      "title": "Level 4-3: 复杂订单业务状态机重构与深层变异测试防御",
+      "category": "architecture_design",
+      "domain": "state_machine",
+      "language": "javascript",
+      "capabilities": [
+        "architecture_design",
+        "testing_mastery"
+      ]
+    }
+  ]
+}

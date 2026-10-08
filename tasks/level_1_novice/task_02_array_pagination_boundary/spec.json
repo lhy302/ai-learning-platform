@@ -1,0 +1,32 @@
+{
+  "description": "实现 paginate(items, page, pageSize) 函数。page 从 1 开始计算。返回包含当前页数据 items、当前页码 page、总页数 totalPages、是否有下一页 hasNext 的分页对象。",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "Array<any>",
+      "description": "输入列表"
+    },
+    {
+      "name": "page",
+      "type": "number",
+      "description": "当前页码（>=1）"
+    },
+    {
+      "name": "pageSize",
+      "type": "number",
+      "description": "每页数量（>=1）"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "Object",
+      "description": "分页元数据及结果集"
+    }
+  ],
+  "boundary_conditions": [
+    "当 items 为空数组 [] 时，totalPages 应该为 0（或 1），hasNext 应为 false",
+    "当 page 大于 totalPages 时，返回 items 必须为空数组，且 hasNext 必须为 false",
+    "items 恰好是 pageSize 整数倍时，totalPages 不能多算一页"
+  ]
+}

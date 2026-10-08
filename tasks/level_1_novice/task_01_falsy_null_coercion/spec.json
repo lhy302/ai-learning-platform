@@ -1,0 +1,27 @@
+{
+  "description": "解析形如 ${VAR_NAME:-default} 的环境变量模板。若 VAR_NAME 在 envMap 中已定义，则返回该值；若未定义，回退至 default；若 default 亦为空，返回空字符串。",
+  "inputs": [
+    {
+      "name": "template",
+      "type": "string",
+      "description": "待插值配置模板"
+    },
+    {
+      "name": "envMap",
+      "type": "Record<string, string>",
+      "description": "环境变量映射"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string",
+      "description": "解析后字符串"
+    }
+  ],
+  "boundary_conditions": [
+    "环境变量显式定义为空字符串 (\"\") 时应视为有效定义值，不可错误回退到默认值",
+    "环境变量为数字字符 \"0\" 或 \"false\" 时必须严格保留",
+    "template 为 null/undefined 时抛出 TypeError"
+  ]
+}

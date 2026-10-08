@@ -1,0 +1,24 @@
+{
+  "id": "task_09_deadlock_lock_ordering",
+  "tier": "level_3_advanced",
+  "difficulty": "hard",
+  "level_num": 3,
+  "title": "Level 3-3: 多资源并发互斥锁顺序不一致引发的循环等待死锁",
+  "category": "concurrency",
+  "domain": "concurrency_lock",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/transfer-service/pull/77",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "capabilities": [
+    "concurrency",
+    "architecture_design",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "加锁顺序直接取决于参数顺序：先 lock(accountA) 再 lock(accountB)。并发 A->B 与 B->A 同时发生时，各自持有一锁等待对方的锁，造成哲学家就餐式循环死锁。",
+  "review_checkpoints": [
+    "破除死锁的循环等待条件",
+    "按唯一资源标识 (id) 字典序强制加锁"
+  ]
+}

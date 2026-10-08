@@ -1,0 +1,23 @@
+{
+  "description": "实现 safeResolvePath(baseDir, userInput) 函数。保证解析出来的物理路径严格限制在 baseDir 目录树之内，严禁访问系统敏感文件（如 /etc/passwd）。",
+  "inputs": [
+    {
+      "name": "baseDir",
+      "type": "string"
+    },
+    {
+      "name": "userInput",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "safePath",
+      "type": "string"
+    }
+  ],
+  "boundary_conditions": [
+    "抵御双写绕过 (....//) 与 Windows 反斜杠编码绕过",
+    "超出 baseDir 范围必须抛出 Error('Path traversal forbidden')"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "task_11_idempotent_event_dedup",
+  "tier": "level_4_master",
+  "difficulty": "expert",
+  "level_num": 4,
+  "title": "Level 4-2: 乱序消息消费中的幂等去重窗口失效与重复结算事故",
+  "category": "architecture_design",
+  "domain": "event_processing",
+  "language": "javascript",
+  "source_type": "postmortem",
+  "source_url": "https://security-postmortem.internal/incidents/EVENT-409",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "capabilities": [
+    "architecture_design",
+    "concurrency",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "代码在异步执行业务前只做了 if (this.processedSet.has(eventId)) 检查，而在业务成功后才执行 set.add(eventId)。两个并发事件会在第一次检查时全部判定为未处理，导致双重入账！",
+  "review_checkpoints": [
+    "先占位标记再执行业务 (Check-then-Act 竞态)",
+    "原子化幂等性保障"
+  ]
+}

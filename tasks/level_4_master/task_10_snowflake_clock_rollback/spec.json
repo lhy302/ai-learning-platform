@@ -1,0 +1,19 @@
+{
+  "description": "实现 SnowflakeIdGenerator 类。在分布式服务器发生 NTP 时钟同步微调回拨时，能够正确检测回拨并阻止生成重复 ID，或在小幅度回拨时等待追平。",
+  "inputs": [
+    {
+      "name": "workerId",
+      "type": "number"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "id",
+      "type": "string"
+    }
+  ],
+  "boundary_conditions": [
+    "若系统当前时间戳小于上次记录的 lastTimestamp，必须立刻识别为时钟回拨",
+    "时钟回拨时绝不可生成任何可能与历史重复的 ID，必须抛出 ClockRollbackError 或等待追平"
+  ]
+}

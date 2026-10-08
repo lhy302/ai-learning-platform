@@ -1,0 +1,27 @@
+{
+  "description": "实现 transferFunds(accountA, accountB, amount) 转账业务。需要同时锁定 accountA 与 accountB 的互斥锁。要求在高并发双向互转下绝不产生死锁。",
+  "inputs": [
+    {
+      "name": "accountA",
+      "type": "Account"
+    },
+    {
+      "name": "accountB",
+      "type": "Account"
+    },
+    {
+      "name": "amount",
+      "type": "number"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "success",
+      "type": "boolean"
+    }
+  ],
+  "boundary_conditions": [
+    "A 转 B 与 B 转 A 在并发发生时，系统必须在有限时间内完成，绝不能永久卡死",
+    "必须保证转账事务的原子性"
+  ]
+}

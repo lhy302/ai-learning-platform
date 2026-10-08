@@ -1,0 +1,19 @@
+{
+  "description": "实现 OrderFSM 类，包含状态机流转 transition(event)。状态流转严格遵循: PENDING -> PAID -> SHIPPED -> COMPLETED，以及 PENDING -> CANCELLED, PAID -> REFUNDED。严禁任何非法逆向或跳跃状态跃迁。",
+  "inputs": [
+    {
+      "name": "event",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "newState",
+      "type": "string"
+    }
+  ],
+  "boundary_conditions": [
+    "严禁从未支付状态直接跃迁到已退款状态 (PENDING -> REFUNDED 必须被拒绝)",
+    "状态转移必须具备幂等性与不可逾越的转移表验证"
+  ]
+}

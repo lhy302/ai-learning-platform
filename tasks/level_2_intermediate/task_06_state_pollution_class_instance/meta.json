@@ -1,0 +1,24 @@
+{
+  "id": "task_06_state_pollution_class_instance",
+  "tier": "level_2_intermediate",
+  "difficulty": "medium",
+  "level_num": 2,
+  "title": "Level 2-3: AI 在重试批处理器中将临时批结果误置于类实例属性导致状态串话",
+  "category": "ai_review",
+  "domain": "batch_executor",
+  "language": "javascript",
+  "source_type": "synthetic",
+  "source_url": "synthetic://curated/ai-leak-state-06",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "ai_review",
+    "concurrency",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "AI 将本次批执行的中间收集数组放到了 this.results 上，而不是局部变量中，导致多次调用时历史结果持续累积。",
+  "review_checkpoints": [
+    "审查类属性是否存储了瞬态执行上下文",
+    "审查有状态 vs 无状态设计边界"
+  ]
+}

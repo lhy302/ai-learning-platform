@@ -1,0 +1,24 @@
+{
+  "id": "task_08_path_traversal_sanitization",
+  "tier": "level_3_advanced",
+  "difficulty": "hard",
+  "level_num": 3,
+  "title": "Level 3-2: 静态文件服务器黑名单过滤双写绕过与跨目录逃逸漏洞",
+  "category": "security",
+  "domain": "file_security",
+  "language": "javascript",
+  "source_type": "postmortem",
+  "source_url": "https://security-postmortem.internal/incidents/SEC-89",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "security",
+    "boundary",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "使用简单正则 replace(/\\.\\.\\//g, '') 做黑名单清洗，攻击者通过 '....//' 单次清洗后依然还原出 '../' 实现逃逸。",
+  "review_checkpoints": [
+    "不要依赖黑名单字符串替换清洗",
+    "基于 path.resolve 规范化后比较绝对前缀"
+  ]
+}

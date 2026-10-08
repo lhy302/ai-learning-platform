@@ -1,0 +1,21 @@
+{
+  "description": "实现 SafeTaskQueue 类。支持 enqueue(asyncFn) 添加异步任务。当某个任务失败时，队列不可崩溃，应记录该任务的错误并在该任务 Promise 中抛出，同时必须继续执行后续入队任务。",
+  "inputs": [
+    {
+      "name": "asyncFn",
+      "type": "() => Promise<any>",
+      "description": "异步执行函数"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "Promise<any>",
+      "description": "单个任务的执行结果"
+    }
+  ],
+  "boundary_conditions": [
+    "单个任务发生 Rejected 异常时，队列必须平稳消化，绝不可阻塞后续任务调度",
+    "队列必须按 FIFO 顺序串行执行任务"
+  ]
+}

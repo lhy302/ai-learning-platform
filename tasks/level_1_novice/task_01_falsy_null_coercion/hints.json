@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：你是否验证了空字符串 \"\" 这个边界在布尔表达式中的求值结果？",
+  "L1": "方向提示：JavaScript 中 || 运算会将空字符串转化为 false 进行短路求值。",
+  "L2": "模块提示：审查正则回调中返回变量的三元运算符逻辑。",
+  "L3": "函数提示：使用 hasOwnProperty 检查 key 是否显式定义在 envMap 中。",
+  "L4": "伪代码提示：if (Object.prototype.hasOwnProperty.call(envMap, key)) return envMap[key];",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

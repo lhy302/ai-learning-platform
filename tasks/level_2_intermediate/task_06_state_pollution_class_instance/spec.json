@@ -1,0 +1,19 @@
+{
+  "description": "实现 BatchExecutor 类，executeBatch(tasks) 接收任务列表并执行，返回结果数组。支持同一实例多次调用 executeBatch。",
+  "inputs": [
+    {
+      "name": "tasks",
+      "type": "Array<() => Promise<any>>"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "results",
+      "type": "Array<{ success: boolean, data?: any, error?: any }>"
+    }
+  ],
+  "boundary_conditions": [
+    "多次连续调用 executeBatch 时，前一次调用的结果绝不可混入后一次调用的返回中",
+    "每个任务的结果独立"
+  ]
+}

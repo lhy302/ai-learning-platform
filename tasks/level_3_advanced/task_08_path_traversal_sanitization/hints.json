@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：如果攻击者输入 '....//'，replace(/\\.\\.\\//g, '') 执行一次之后剩下什么？",
+  "L1": "方向提示：清洗永远赶不上绕过，应当直接计算绝对物理路径，再做白名单前缀包含断言。",
+  "L2": "模块提示：使用 path.resolve(baseDir, userInput)。",
+  "L3": "函数提示：检查 target.startsWith(safeBase + path.sep)。",
+  "L4": "伪代码提示：const target = path.resolve(base, input); if (!target.startsWith(basePrefix)) throw Error();",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

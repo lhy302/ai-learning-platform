@@ -1,0 +1,23 @@
+{
+  "description": "实现 HeartbeatMonitor 类。start(intervalMs, pingFn) 启动心跳定时器，stop() 停止心跳并彻底清理内部定时器句柄，确保进程能够干净退出。",
+  "inputs": [
+    {
+      "name": "intervalMs",
+      "type": "number"
+    },
+    {
+      "name": "pingFn",
+      "type": "() => void"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "status",
+      "type": "boolean"
+    }
+  ],
+  "boundary_conditions": [
+    "调用 stop() 后必须彻底清除定时器句柄 (clearInterval/clearTimeout)，确保 isRunning 返回 false",
+    "多次连续调用 start() 不能产生多重孤儿定时器"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：for...in 循环会访问哪些属性？它与 Object.keys 有何本质区别？",
+  "L1": "方向提示：for...in 会沿着原型链向上攀爬枚举所有可枚举属性。",
+  "L2": "模块提示：替换 for...in 为 Object.keys(target)。",
+  "L3": "函数提示：对 __proto__ 与 prototype 等敏感原型注入键进行安全过滤。",
+  "L4": "伪代码提示：for (const key of Object.keys(target)) { if (key !== '__proto__') out[key] = deepClone(target[key]); }",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

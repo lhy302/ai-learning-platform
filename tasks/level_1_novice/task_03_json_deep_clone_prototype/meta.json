@@ -1,0 +1,24 @@
+{
+  "id": "task_03_json_deep_clone_prototype",
+  "tier": "level_1_novice",
+  "difficulty": "easy",
+  "level_num": 1,
+  "title": "Level 1-3: 对象深拷贝中的原型链枚举与原型污染防护",
+  "category": "security",
+  "domain": "object_utils",
+  "language": "javascript",
+  "source_type": "synthetic",
+  "source_url": "synthetic://curated/clone-prototype-03",
+  "license": "MIT",
+  "version": "1.0.0",
+  "capabilities": [
+    "security",
+    "null_safety",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "使用 for...in 循环遍历对象时未过滤 hasOwnProperty，导致原型链属性被错误拷贝；且未过滤 __proto__ 属性导致原型污染隐患。",
+  "review_checkpoints": [
+    "for...in 遍历对象时必须使用 hasOwnProperty 或 Object.keys",
+    "防范 __proto__ 注入"
+  ]
+}

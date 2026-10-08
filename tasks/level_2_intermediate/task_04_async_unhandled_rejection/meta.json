@@ -1,0 +1,24 @@
+{
+  "id": "task_04_async_unhandled_rejection",
+  "tier": "level_2_intermediate",
+  "difficulty": "medium",
+  "level_num": 2,
+  "title": "Level 2-1: 异步任务队列中的未捕获异常导致事件循环与管道中断",
+  "category": "error_handling",
+  "domain": "async_queue",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/async-pipeline/pull/512",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "capabilities": [
+    "error_handling",
+    "concurrency",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "在调度下一个任务时直接使用 this.chain = this.chain.then(fn)，未绑定 .catch()，导致前置任务如果抛错，会直接短路整个 Promise 链条，导致后续所有任务被跳过！",
+  "review_checkpoints": [
+    "Promise 链式调度中避免未捕获拒绝击穿链条",
+    "保证无论成功失败都驱动队列前进"
+  ]
+}

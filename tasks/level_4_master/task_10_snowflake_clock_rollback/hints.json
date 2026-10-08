@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：如果服务器做 NTP 同步导致时间倒退了 10 毫秒，雪花算法会发生什么？",
+  "L1": "方向提示：分布式唯一 ID 绝不能信任物理时钟的严格单调性，必须显式检查回拨。",
+  "L2": "模块提示：在方法最开始比较 now 与 this.lastTimestamp。",
+  "L3": "函数提示：if (now < this.lastTimestamp) 抛出时钟回拨异常。",
+  "L4": "伪代码提示：if (now < this.lastTimestamp) throw new Error('Clock moved backwards');",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

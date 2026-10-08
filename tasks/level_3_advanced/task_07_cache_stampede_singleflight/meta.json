@@ -1,0 +1,24 @@
+{
+  "id": "task_07_cache_stampede_singleflight",
+  "tier": "level_3_advanced",
+  "difficulty": "hard",
+  "level_num": 3,
+  "title": "Level 3-1: 高并发异步 LRU 缓存击穿与未命中竞态 (Singleflight 模式)",
+  "category": "concurrency",
+  "domain": "cache_system",
+  "language": "javascript",
+  "source_type": "open_source_pr",
+  "source_url": "https://github.com/example-oss/fast-cache/pull/2180",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "capabilities": [
+    "concurrency",
+    "performance",
+    "testing_mastery"
+  ],
+  "ground_truth_defect": "缺少在途请求 (In-flight Map) 合并逻辑，并发 await cache.get 会在第一个请求完成前全部穿透到底层 fetcher() 造成击穿。",
+  "review_checkpoints": [
+    "并发单飞模式 (Singleflight)",
+    "在途 Promise 的 finally 清理机制"
+  ]
+}

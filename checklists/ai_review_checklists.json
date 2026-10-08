@@ -1,0 +1,29 @@
+[
+  {
+    "id": "chk_falsy_null",
+    "title": "边界与空值安全自检清单",
+    "items": [
+      "是否存在 val || def 导致的空串、0、false 误伤？",
+      "是否使用 Object.prototype.hasOwnProperty.call 或 in 校验键的存在性？",
+      "空数组或空集合输入时，返回值是否安全？"
+    ]
+  },
+  {
+    "id": "chk_concurrency_async",
+    "title": "并发与异步竞态自检清单",
+    "items": [
+      "高并发查询未命中缓存时，是否使用在途 Promise (Singleflight) 合并请求？",
+      "多资源加锁时，是否遵循了全局统一的字典序以杜绝死锁？",
+      "定时器与长连接在退出或重启时是否 100% 释放句柄？"
+    ]
+  },
+  {
+    "id": "chk_security_sanitization",
+    "title": "文件路径与输入安全自检清单",
+    "items": [
+      "是否误用黑名单字符串替换防御路径穿越？",
+      "是否使用 path.resolve 规范化后与白名单前缀严格比对？",
+      "原型属性遍历是否被严密隔离？"
+    ]
+  }
+]

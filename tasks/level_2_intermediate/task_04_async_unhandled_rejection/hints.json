@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：如果 Promise 链中一个节点抛出异常且未被捕获，后续的 then 会发生什么？",
+  "L1": "方向提示：Promise 链遇到拒绝会自动向下传播至 catch，导致中途的所有 then 执行被跳过。",
+  "L2": "模块提示：在更新 this.chain 时，将执行流程与调用者的返回 Promise 解耦或做无论成败的恢复。",
+  "L3": "函数提示：在 this.chain.then 内部包裹 try...catch，无论成功或失败都不要把拒绝传给 this.chain。",
+  "L4": "伪代码提示：this.chain = this.chain.then(async () => { try { resolve(await fn()); } catch(e) { reject(e); } });",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}

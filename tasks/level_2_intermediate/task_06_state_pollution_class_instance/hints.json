@@ -1,0 +1,8 @@
+{
+  "L0": "元认知提问：同一个 BatchExecutor 实例在被使用多次时，this.results 的生命周期是多久？",
+  "L1": "方向提示：关注实例属性与局部变量的作用域差异。",
+  "L2": "模块提示：将 this.results 移出构造函数，改为方法内部局部变量。",
+  "L3": "函数提示：在 executeBatch 一开始声明 const results = []。",
+  "L4": "伪代码提示：executeBatch() { const localResults = []; ... return localResults; }",
+  "L5": "复盘阶段查看官方标准参考实现。"
+}
